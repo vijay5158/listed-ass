@@ -1,7 +1,13 @@
+"use client";
+import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const SideBar = () => {
+const handleSignout = (e)=>{
+  e.preventDefault();
+  signOut({ callbackUrl: '/signin' });
+}
   return (
     <div className="bg-[#000] fixed py-[4vh] px-[4vh] text-white w-[18%] rounded-[30px] m-[25px] h-[-webkit-fill-available] flex flex-col">
       <div className="">
@@ -42,7 +48,10 @@ const SideBar = () => {
         </ul>
       </nav>
       <div>
-            <Link href="#" className="block text-sm">
+      <button onClick={handleSignout} className="block border-0 outline-none bg-transparent text-sm">
+            Sign Out
+            </button>
+            <Link href="#" className="block mt-[3%] text-sm">
             Help
             </Link>
             <Link href="#" className="block mt-[3%] text-sm">
