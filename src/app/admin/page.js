@@ -5,6 +5,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import SideBar from '@/components/SideBar';
 import Dashboard from '@/components/dashboard/Index';
+import { redirect } from 'next/navigation';
 
 const Admin = async () => {
     const session = await getServerSession(authOptions);
